@@ -5,7 +5,7 @@ var path = require("path");
 var notesInfo = require("./db.json");
 
 var app = express();
-var PORT = 8080;
+var PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -15,11 +15,11 @@ app.use(express.static('public'));
 
 
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "/index.html"));
+    res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 app.get("/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "/notes.html"));
+    res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
 app.post("/api/notes", function(req,res){
